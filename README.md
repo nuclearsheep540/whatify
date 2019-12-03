@@ -76,8 +76,8 @@ class Callback(RetrieveUpdateDestroyAPIView):
 class RetrieveUser(APIView):
     def get(self, _request):
         profile_data = authed_spotify.me()
-        image = profile_data['images'][0]['url'] if profile_data['images'] else 'https://news.artnet.com/app/news-upload/2016/03/kanye-west-crop-e1458141735868-256x256.jpg'
-                    #if profilr_data['images] is true, then set img = profile_data['images'][0]['url'], else, return Kanye
+        image = profile_data['images'][0]['url'] if profile_data['images'] else 'https://tinyurl.com/qwcz76h'
+        #if profile_data is true, then set, else, return Kanye
         payload = {
         'displayname': profile_data.get('display_name'),
         'username': profile_data.get('id'),
