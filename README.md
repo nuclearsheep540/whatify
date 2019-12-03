@@ -57,11 +57,10 @@ We began back end development by planning models and serializers required for th
 class AuthOutput(APIView):
     def get(self, _request):
         global sp 
-        sp = None
         sp = spotipy.oauth2.SpotifyOAuth(spotify_client_id, spotify_client_secret, spotify_redirect_uri, state=None, scope=scope, cache_path=None, proxies=None)
         url = sp.get_authorize_url()
-        return Response(url)
 
+        return Response(url)
 
 class Callback(RetrieveUpdateDestroyAPIView):
     def post(self, request):
@@ -120,6 +119,7 @@ class RetrieveUser(APIView):
             
             if createdSong.is_valid():
               createdSong.save()
+              
         return Response(profile_data.get('id'))
 ```
 
