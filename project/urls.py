@@ -15,14 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from spotify_auth.views import cookie_session
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
-    path('admin/', include('rest_framework.urls')),
+    path('rest/', include('rest_framework.urls')),
     path('api/', include('spotify_auth.urls')),
     path('db/', include('user.urls')),
     path('api/db/', include('user.urls')),
-    path('', include('frontend.urls'))
+    path('', include('frontend.urls')),
+    path('test', cookie_session)
     # path('api/', include('stations.urls')), REMEMBER TO CHANGE STATIONS
     # path('api/', include('jwt_auth.urls')), JWT?!
 ]
